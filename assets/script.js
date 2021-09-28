@@ -3,9 +3,35 @@ const submitButton = document.getElementById('username')
 
 submitButton.addEventListener('click' showCatagorys)
 
+
+/**
+ * This function shows the catagorys, removes the username input
+ * and submit button then adds in the 4 catagorey buttons.
+ */
 function showCatagorys() {
     submitButton.classList.remove('username1')
     submitButton.classList.add('catagorey')
+}
+
+/**
+ * starts the game when button the start button
+ * is pressed, then hides the start button. It shuffles 
+ * the questions, the seets  the next question.
+ */
+function startGame() {
+    startButton.classList.add('hide')
+    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
+    questionContainerElement.classList.remove('hide')
+    setNextQuestion()
+}
+
+/**
+ * Function sets the next question and then shows the next question.
+ */
+function setNextQuestion() {
+    resetState()
+    showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 const questions = [
