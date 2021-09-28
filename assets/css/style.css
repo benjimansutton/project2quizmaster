@@ -41,3 +41,24 @@ p {
     color: black;
     outline: none;
 }
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.btn.correct {
+    background-color: green;
+    color: white;
+}
+
+.btn.wrong {
+    background-color: red;
+    color: white;
+}
+
+.start-btn, .next-btn {
+    font-size: medium;
+    font-weight: bold;
+    padding: 15px 25px;
+}
