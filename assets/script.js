@@ -1,3 +1,13 @@
+const submitButton = document.getElementById('username')
+
+
+submitButton.addEventListener('click' showCatagorys)
+
+function showCatagorys() {
+    submitButton.classList.remove('username1')
+    submitButton.classList.add('catagorey')
+}
+
 const questions = [
     {
         question: 'What is the capital of Chile?',

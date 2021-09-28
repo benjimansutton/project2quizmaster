@@ -1,0 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 90vw;
+    height: 90vw;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+
+}
