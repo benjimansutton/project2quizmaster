@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="A Super Slick Quiz designed to test your knowledge"/>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="script" href="assets/script.js">
+<title>A Super Slick Quiz</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="header">Super Slick Quiz</h1>
+
+        <p class="intro">Select a Username & a Subject to Test your Knowledge</p>
+
+        <div id="question-container" class="hide"></div>
+
+        <div id="username" class="username1">
+            <form>
+
+                <label for="user"><h3>Username</h3></label>
+                <input type="text" id="user" name="user" required><br>
+                
+              <div id="catagorey" class="btn-grid">
+                <button class="btn-cat ">Geography</button>
+                <button class="btn-cat ">History</button>
+                <button class="btn-cat ">Sports</button>
+                <button class="btn-cat ">Food & Drink</button>
+            </div>
+
+            <input class="submit" type="submit">
+
+            </form>
+        </div>
+        <div id="question" class="hide">Question</div>
+
+        <div id="answer-buttons" class="btn-grid">
+            <button class="btn hide">Answer 1</button>
+            <button class="btn hide">Answer 2</button>
+            <button class="btn hide">Answer 3</button>
+            <button class="btn hide">Answer 4</button>
+        </div>
+
+        <div class="controls">
+            <div id="start-btn" class="start-btn btn hide">Start</div>
+            <div id="next-btn" class="next-btn btn hide">Next</div>
+        </div>
+
+        <div id="results"></div>
+
+    </div>
+
+
+</body>
+</html>
