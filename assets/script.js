@@ -1,7 +1,22 @@
 const submitButton = document.getElementById('username')
+const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
 
+function showUsername() {
+    submitButton.classList.remove('hide') 
+}
+
+let shuffledQuestions, currentQuestionIndex
 
 submitButton.addEventListener('click' showCatagorys)
+startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++
+    setNextQuestion()
+})
 
 
 /**
@@ -32,6 +47,61 @@ function startGame() {
 function setNextQuestion() {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
+/**
+ * Function shows the next question, takes the inner text and replaces it with the next question.
+ */
+function showQuestion(questions) {
+    questionElement.innerText = questions.question
+    questions.answers.forEach(answers => {
+        const button = document.createElement('button')
+        button.innerText = answers.text
+        button.classList.add('btn')
+        if (answers.correct) {
+            button.dataset.correct = answers.correct
+        }
+        button.addEventListener('click', selectAnswer)
+        answerButtonsElement.appendChild(button)
+    })
+}
+
+function resetState() {
+    nextButton.classList.add('hide')
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild
+        (answerButtonsElement.firstChild)
+    }
+}
+
+function selectAnswer(e) {
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonsElement.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    if (shuffledQuestions.length > currentQuestionIndex + 1) { 
+      nextButton.classList.remove('hide') 
+    } else {
+        startButton.innerText = 'Restart'
+        startButton.classList.remove('hide')
+    }
+} 
+
+
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add('correct')
+    } else {
+        element.classList.add('wrong')
+    }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
 }
 
 const questions = [
